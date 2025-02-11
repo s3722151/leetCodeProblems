@@ -60,3 +60,27 @@ Course Schedule (Medium) → Topological sorting, graph cycles.
 These problems frequently appear in graduate role interviews.
 Covers arrays, strings, hash maps, binary search, recursion, graphs, trees, and DP—all core CS topics.
 Balances easy, medium, and some harder problems to build problem-solving skills progressively.
+
+
+# Revised list if I don't have time
+📅 Week 1 (Feb 9 - Feb 15) → Arrays & Hashing (Fundamentals)
+
+Two Sum (Easy) → HashMap usage, most common interview question.
+
+Product of Array Except Self (Medium) → Prefix/suffix product, common optimization problem.
+
+📅 Week 2 (Feb 16 - Feb 22) → Binary Search & Linked Lists
+
+Binary Search (Easy) → Essential searching technique.
+
+Merge Two Sorted Lists (Easy) → Linked List recursion, merging logic.
+
+Reverse Linked List (Easy) → Iterative and recursive solutions.
+
+📅 Week 3 (Feb 23 - Feb 29) → Trees & Dynamic Programming
+
+Invert Binary Tree (Easy) → Recursive DFS, classic problem.
+
+Climbing Stairs (Easy) → Fibonacci sequence, intro to DP.
+
+House Robber (Medium) → Fundamental DP problem for interview prep.
