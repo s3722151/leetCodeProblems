@@ -1,5 +1,7 @@
 # leetCodeProblems
 I plan to make a repository where I plan to tackle solutions for a month.
+This is where the questions are from: 
+https://leetcode.com/problems/two-sum/description/
 
 # Based on ChatGPT
 📅 Week 1 (Feb 9 - Feb 15) 
