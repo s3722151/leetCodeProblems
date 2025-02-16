@@ -35,7 +35,7 @@ public static void main(String[] args) {
 
 
 
-//Solution 2
+//Solution 2: Best performance
 //import java.util.ArrayList;
 //import java.util.List;
 //class bestTimeToBuyStockEasy  {
