@@ -138,8 +138,4 @@ Solution 2: Ideal for real-world use due to its efficiency.
 Which Solution to Use?
 Solution 2 is the better choice because it is more efficient and handles large inputs effectively. It’s the standard approach for this problem and is widely used in practice.
 
-
-
-
-
 */
