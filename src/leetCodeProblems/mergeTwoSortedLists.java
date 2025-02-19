@@ -12,8 +12,8 @@ public class mergeTwoSortedLists {
 //class Solution {
 //	//mergeTwoSortedLists = ListNode in the video
 //    public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
-//    	ListNode dummy = new ListNode(0);
-//    	ListNode curr = dummy;
+//    	ListNode dummy = new ListNode(0); //This is the beginneer node
+//    	ListNode curr = dummy; //Current node that we are using
 //    	while (list1 != null && list2!=null) {
 //    		//merge list 
 //    		if (list1.val <= list2.val) {
@@ -45,11 +45,14 @@ TOPICS
 2.Recursion 
 - What is it: https://www.w3schools.com/java/java_recursion.asp
 3.Extra Topics
+- Understanding factorials: https://www.youtube.com/watch?v=pxh__ugRKz8
 4.Solutions
 https://www.youtube.com/watch?v=g_uxlc8C6HE
 - We have pointers in each node for each list
 - We compare each list and append based on if if one is greater than the other
 - We continue intil both linked lists reach null (end)
+https://www.youtube.com/watch?v=KVf1Uuqfv8E
+- Same as above but without turnary operator
  
 WHAT I LEARNT - Linked Lists
 Linked Lists data structures that contain a series of nodes
@@ -84,14 +87,14 @@ Uses
 2. GPS navigation 
 3. Music playlist
 
+
+
 DEEPSEEK Indepth explanation 
 Problem Overview
 You are given two sorted linked lists, and your goal is to merge them into a single sorted linked list. For example:
 
 List 1: 1 -> 3 -> 5
-
 List 2: 2 -> 4 -> 6
-
 Merged List: 1 -> 2 -> 3 -> 4 -> 5 -> 6
 
 Key Concepts
