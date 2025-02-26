@@ -115,7 +115,4 @@ Each decision (rob/skip) uses previously computed optimal values.
 Avoid Adjacent: 
 By always comparing the sum including the current house (with dp[i-2]) or excluding it (dp[i-1]), 
 the solution ensures no two adjacent houses are robbed.
- 
-
-
 */
