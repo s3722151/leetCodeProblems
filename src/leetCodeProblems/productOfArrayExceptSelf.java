@@ -6,6 +6,7 @@ public class productOfArrayExceptSelf {
 }
 
 /* 
+//Example for nums = [2, 3, 4, 5]:
 class Solution {
     public int[] productExceptSelf(int[] nums) {
     
@@ -47,10 +48,6 @@ Topics
  - https://www.freecodecamp.org/news/big-o-cheat-sheet-time-complexity-chart/
 
 
-What I have learnt 
-DP is a way of braking larger problems into smaller problems 
-This is through reucursion where a condition must be specified to avoid method repeating forever.
-
 */
 
 
@@ -71,61 +68,68 @@ What question means
 	- Also we cannot divide by 0 
 - To calculate a current value, find elments beside it 9left and right)
 
-CODE
-Problem: You need to create a new array where each element is the product of all other elements except itself.
-Example Input: nums = [2, 3, 4, 5]
-Desired Output: [3*4*5, 2*4*5, 2*3*5, 2*3*4] = [60, 40, 30, 24]
+DEEPSEEK
+Key Concepts to Understand
+i++: This means "increment i by 1 after the current step." 
+	It’s used in the for loop to move forward through the array.
+i--: This means "decrement i by 1 after the current step." 
+	It’s used in the for loop to move backward through the array.
+i-1: This refers to the index before the current index i.
+i+1: This refers to the index after the current index i.
 
-Solution Strategy: Use Two Helper Arrays (Left & Right)
-We'll split the problem into two simpler parts:
-Left Products: What's the product of all elements to the left of each element?
-Right Products: What's the product of all elements to the right of each element?
+WE DON'T ACTUALLY -1 and +1, we do this to REFER to positions.
+	i is the current index in the for loop.
+	i-1 is the previous index (the one before i).
+	We use i-1 to access the previous value in the left array and the previous value in the nums array.
 
-Combine Them: Multiply left and right products for each position to exclude the current element.
+Example Input: nums = [2, 3, 4, 5] (values in array)
+1/Calculate Left 
+		positions(i)-> 0  1  2  3
+Iteration	i(Current Index)	i-1(Previous Index)   left[i-1](Previous Left Value)	nums[i-1](Previous Number in nums)	left[i] = left[i-1] * nums[i-1]		left Array
+1			1					0					  left[0] = 1						nums[0] = 2							left[1] = 1 * 2 = 2					[1, 2, _, _]
+2			2					1					  left[1] = 2						nums[1] = 3							left[2] = 2 * 3 = 6					[1, 2, 6, _]
+3			3					2					  left[2] = 6						nums[2] = 4							left[3] = 6 * 4 = 24				[1, 2, 6, 24]
 
-Step 1: Calculate Left Products
-left[i] = product of all elements before index i.
 
-Key Rule: Start with left[0] = 1 (nothing to the left of first element).
+What’s Happening Here?
+1.i is the current index:
+	In each iteration of the loop, i is the index we’re currently calculating the left value for.
+	For example, in the first iteration, i = 1 (we’re calculating left[1]).
 
-Example for nums = [2, 3, 4, 5]:
-Index	How to Calculate left[i]						left Array
-0		Nothing left → 1								[1, _, _, _]
-1		Previous left (1) * nums[0] (2) → 1*2 = 2		[1, 2, _, _]
-2		Previous left (2) * nums[1] (3) → 2*3 = 6		[1, 2, 6, _]
-3		Previous left (6) * nums[2] (4) → 6*4 = 24		[1, 2, 6, 24]
-Left Array: [1, 2, 6, 24]
+2.i-1 is the previous index:
+	i-1 is the index before i. 
+	It’s used to access the previous value in the left array (left[i-1]) and the previous value in the nums array (nums[i-1]).
+	For example, when i = 1, i-1 = 0. So we look at left[0] and nums[0].
 
-Step 2: Calculate Right Products
-right[i] = product of all elements after index i.
+3.Why do we use i-1?:
+	The left array stores the product of all elements to the left of the current index i.
+	To calculate left[i], we need the product of all elements before i. 
+	That’s why we use left[i-1] (the product so far) and multiply it by nums[i-1] (the previous number in nums).
 
-Key Rule: Start with right[3] = 1 (nothing to the right of last element).
+Summary: We refer to the previous left value to avoid calculating it again
 
-Example for nums = [2, 3, 4, 5]:
-Index	How to Calculate right[i]						right Array
-3		Nothing right → 1								[_, _, _, 1]
-2		Previous right (1) * nums[3] (5) → 1*5 = 5		[_, _, 5, 1]
-1		Previous right (5) * nums[2] (4) → 5*4 = 20		[_, 20, 5, 1]
-0		Previous right (20) * nums[1] (3) → 20*3 = 60	[60, 20, 5, 1]
-Right Array: [60, 20, 5, 1]
 
-Step 3: Combine Left & Right Products
-For each index i, multiply left[i] * right[i] to get the final answer.
-This works because left[i] contains all elements to the left, and right[i] contains all elements to the right 
-→ Together, they exclude nums[i].
 
-Final Calculation:
-Index	left[i]	right[i]	Answer (left * right)
-0	1			60			1*60 = 60
-1	2			20			2*20 = 40
-2	6			5			6*5 = 30
-3	24			1			24*1 = 24
-Final Answer: [60, 40, 30, 24]
+Step 2: Calculate the Right Array
+The right array stores the product of all elements to the right of each index.
+We use a for loop with i-- to move backward through the array.
 
-Why Does This Work?
-Left Array "carries" the product of everything before it as we move left to right.
-Right Array "carries" the product of everything after it as we move right to left.
+Step-by-Step Breakdown:
+Iteration	i	i+1	right[i+1]		nums[i+1]		right[i] = right[i+1] * nums[i+1]	right Array
+1			2	3	right[3] = 1	nums[3] = 5		right[2] = 1 * 5 = 5				[_, _, 5, 1]
+2			1	2	right[2] = 5	nums[2] = 4		right[1] = 5 * 4 = 20				[_, 20, 5, 1]
+3			0	1	right[1] = 20	nums[1] = 3		right[0] = 20 * 3 = 60				[60, 20, 5, 1]
 
-Combining them skips the current element naturally!
+What’s Happening:
+We start at i = nums.length - 2 (second-to-last index) because right[nums.length - 1] is already set to 1.
+For each i, we look at the next index (i+1) to get the product so far (right[i+1]) and multiply it by the next number in nums (nums[i+1]).
+This builds the right array step by step.
 
+Step 3: Combine Left and Right Arrays
+Step-by-Step Breakdown:
+Index (i)	left[i]	right[i]	ans[i] = left[i] * right[i]		Final ans Array
+0			1		60			1 * 60 = 60						[60, _, _, _]
+1			2		20			2 * 20 = 40						[60, 40, _, _]
+2			6		5			6 * 5 = 30						[60, 40, 30, _]
+3			24		1			24 * 1 = 24						[60, 40, 30, 24]
 */
